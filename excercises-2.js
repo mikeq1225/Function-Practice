@@ -97,7 +97,7 @@ console.assert(rovarspraket(0) === "0")
 // return the string "ratset gaj".
 // ---------------------
 
-function reverseString(str1) {
+function reverse(str1) {
   var newString = ""
   for (var i = str1.length - 1; i >= 0; i--) {
     newString += str1[i]
