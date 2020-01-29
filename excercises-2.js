@@ -1,42 +1,89 @@
 // ---------------------
-// Define a function max() that takes two numbers as 
-// arguments and returns the largest of them. Use the 
+// Define a function max() that takes two numbers as
+// arguments and returns the largest of them. Use the
 // if-then-else construct available in JavaScript.
 // ---------------------
 
-console.assert(max(2,3) === 3)
-console.assert(max(23,24) === 24)
+function max(x, y) {
+  if (x > y) {
+    return x
+  } else if (y > x) {
+    return y
+  } else if (x === y) {
+    return x
+  }
+}
+
+console.assert(max(2, 3) === 3)
+console.assert(max(23, 24) === 24)
 console.assert(max(-23, 12) === 12)
 
 // ---------------------
-// Define a function maxOfThree() that takes three 
+// Define a function maxOfThree() that takes three
 // numbers as arguments and returns the largest of them.
 // ---------------------
 
-console.assert(maxOfThree(2,56,3) === 56)
-console.assert(maxOfThree(12,3,4) === 12)
-console.assert(maxOfThree(-12,4,-5) === 4)
+function maxOfThree(x, y, z) {
+  if (x > y && x > z) {
+    return x
+  } else if (y > z && y > x) {
+    return y
+  } else if (z > x && z > y) {
+    return z
+  }
+}
+
+console.assert(maxOfThree(2, 56, 3) === 56)
+console.assert(maxOfThree(12, 3, 4) === 12)
+console.assert(maxOfThree(-12, 4, -5) === 4)
 
 // ---------------------
-// Write a function isVowel() that takes a character (i.e. a 
-// string of length 1) and returns true if it is a 
+// Write a function isVowel() that takes a character (i.e. a
+// string of length 1) and returns true if it is a
 // vowel, false otherwise.
 // ---------------------
 
-console.assert(isVowel(0) === false);
-console.assert(isVowel("B") === false);
-console.assert(isVowel("b") === false);
-console.assert(isVowel("a") === true);
-console.assert(isVowel("E") === true);
+function isVowel(str) {
+  if (typeof str !== "string") {
+    return false
+  }
+  str = str.toLowerCase()
+  if (str == "a" || str == "e" || str == "i" || str == "o" || str == "u") {
+    return true
+  } else {
+    return false
+  }
+}
+
+console.assert(isVowel(0) === false)
+console.assert(isVowel("B") === false)
+console.assert(isVowel("b") === false)
+console.assert(isVowel("a") === true)
+console.assert(isVowel("E") === true)
 console.assert(isVowel("2") === false)
 
 // ---------------------
-// Write a function rovarspraket() that will translate 
-// a text into "Rovarspraket". That is, double every 
-// consonant and place an occurrence of "o" in between. 
-// For example, translate("this is fun") should return 
+// Write a function rovarspraket() that will translate
+// a text into "Rovarspraket". That is, double every
+// consonant and place an occurrence of "o" in between.
+// For example, translate("this is fun") should return
 // the string "tothohisos isos fofunon".
 // ---------------------
+
+function rovarspraket(string1) {
+  if (typeof string1 !== "string") {
+    return string1.toString()
+  }
+  var string2 = ""
+  for (var i = 0; i < string1.length; i++) {
+    if (isVowel(string1[i])) {
+      string2 += string1[i]
+    } else {
+      string2 += string1[i] + "o" + string1[i]
+    }
+  }
+  return string2
+}
 
 console.assert(rovarspraket("a") === "a")
 console.assert(rovarspraket("b") === "bob")
@@ -44,13 +91,21 @@ console.assert(rovarspraket("cat") === "cocatot")
 console.assert(rovarspraket("javascript") === "jojavovasoscocroripoptot")
 console.assert(rovarspraket(0) === "0")
 
-
 // ---------------------
-// Define a function reverse() that computes the reversal 
-// of a string. For example, reverse("jag testar") should 
+// Define a function reverse() that computes the reversal
+// of a string. For example, reverse("jag testar") should
 // return the string "ratset gaj".
 // ---------------------
 
+function reverseString(str1) {
+  var newString = ""
+  for (var i = str1.length - 1; i >= 0; i--) {
+    newString += str1[i]
+  }
+  return newString
+}
 
 console.assert(reverse("books") === "skoob")
-console.assert(reverse("we don't want no trouble") === "elbuort on tnaw t'nod ew")
+console.assert(
+  reverse("we don't want no trouble") === "elbuort on tnaw t'nod ew"
+)
